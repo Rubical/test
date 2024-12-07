@@ -1,0 +1,10 @@
+{
+  "trailingComma": "none",
+  "tabWidth": 2,
+  "useTabs": true,
+  "semi": false,
+  "arrowParens": "avoid",
+  "singleAttributePerLine": true,
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}
