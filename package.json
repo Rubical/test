@@ -35,7 +35,7 @@
 		}
 	},
 	"lint-staged": {
-		"*.{js,json,css}, !webpack.config.js": [
+		"*.{js,json,css}": [
 			"prettier --write",
 			"eslint --fix"
 		]

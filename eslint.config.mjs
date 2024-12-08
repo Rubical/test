@@ -10,6 +10,7 @@ export default [
 				...globals.node,
 				myCustomGlobal: "readonly"
 			}
-		}
-	}
+		},
+		
+	},
 ]
