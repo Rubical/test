@@ -28,8 +28,6 @@ https://docs.google.com/document/d/1zpXXeSae-BlcxPKgw3DhxZA92cspVailrPYoaXSYrW8/
 
 ## Folder Structure
 
-- **`dist`**: Contains the compiled and bundled files ready for deployment.
-- **`node_modules`**: Stores all the dependencies and packages.
 - **`src`**: Main source code directory:
     - **`js`**: Contains JavaScript files for application logic.
         - `calculator.js`: Implements the core functionality of the calculator.
