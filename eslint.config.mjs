@@ -1,9 +1,15 @@
-import globals from "globals";
-import pluginJs from "@eslint/js";
+import globals from "globals"
 
-
-/** @type {import('eslint').Linter.Config[]} */
 export default [
-  {languageOptions: { globals: globals.browser }},
-  pluginJs.configs.recommended,
-];
+	{
+		languageOptions: {
+			ecmaVersion: 2022,
+			sourceType: "module",
+			globals: {
+				...globals.browser,
+				...globals.node,
+				myCustomGlobal: "readonly"
+			}
+		}
+	}
+]
