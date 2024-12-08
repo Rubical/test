@@ -3,7 +3,7 @@ import "./styles/styles.css"
 import "./js/theme.js"
 import "./js/calculator.js"
 import { Calculator } from "./js/calculator.js"
-import { ThemeController } from "./js/theme"
+import { ThemeController } from "./js/theme.js"
 
 const keypad = document.querySelector(".keypad")
 const themeButton = document.querySelector(".theme-button")
@@ -17,9 +17,7 @@ const themeController = new ThemeController()
 
 window.addEventListener("load", () => {
 	const savedTheme = localStorage.getItem("theme")
-	const systemPrefersDark = window.matchMedia(
-		"(prefers-color-scheme: dark)"
-	).matches
+	const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
 
 	if (savedTheme === "dark" || (!savedTheme && systemPrefersDark)) {
 		themeController.changeTheme()
@@ -29,11 +27,12 @@ window.addEventListener("load", () => {
 themeButton.addEventListener("click", () => {
 	themeController.changeTheme()
 	themeButton.blur()
+	console.log("clicked")
 })
 
 // Calculator functionality with buttons from screen
 
-keypad.addEventListener("click", e => {
+keypad.addEventListener("click", (e) => {
 	if (!e.target.dataset.action) {
 		const value = e.target.dataset.value
 		calculator.updateValue(value)
@@ -48,7 +47,7 @@ keypad.addEventListener("click", e => {
 
 // Calculator functionality with buttons from keyboard
 
-document.addEventListener("keydown", e => {
+document.addEventListener("keydown", (e) => {
 	const key = e.key
 
 	if (!isNaN(parseInt(key))) {

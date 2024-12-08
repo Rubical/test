@@ -22,13 +22,13 @@ export class ThemeController {
 		calculator.classList.toggle("calculator_dark-theme")
 		themeButton.classList.toggle("theme-button_dark-theme")
 
-		keys.forEach(key => {
+		keys.forEach((key) => {
 			key.classList.toggle("key_dark-theme")
 		})
-		functionKeys.forEach(key => {
+		functionKeys.forEach((key) => {
 			key.classList.toggle("function-key_dark-theme")
 		})
-		operationKeys.forEach(key => {
+		operationKeys.forEach((key) => {
 			key.classList.toggle("operation-key_dark-theme")
 		})
 	}

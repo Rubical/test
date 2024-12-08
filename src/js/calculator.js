@@ -68,16 +68,11 @@ export class Calculator {
 			this.clear()
 		}
 
-		const newValue =
-			this.currentValue === "0" && value !== "."
-				? value
-				: this.currentValue + value
+		const newValue = this.currentValue === "0" && value !== "." ? value : this.currentValue + value
 
 		this.#updateDisplay(newValue)
 
-		this.currentValue.length >= 9
-			? this.current.classList.add("display-current-medium")
-			: null
+		this.currentValue.length >= 9 ? this.current.classList.add("display-current-medium") : null
 	}
 
 	clear() {
@@ -95,10 +90,7 @@ export class Calculator {
 
 	getPercent() {
 		this.#checkForError()
-		this.#updateDisplay(
-			this.#formatLongNumber(this.currentValue / 100),
-			this.currentValue + "%"
-		)
+		this.#updateDisplay(this.#formatLongNumber(this.currentValue / 100), this.currentValue + "%")
 	}
 
 	doArithmetic(value) {
@@ -111,10 +103,7 @@ export class Calculator {
 		} else if (this.previousValue.includes("=")) {
 			this.#updateDisplay("0", this.currentValue + value)
 		} else if (this.#endsWithArithmeticSign(this.previousValue)) {
-			this.#updateDisplay(
-				this.currentValue,
-				this.previousValue.slice(0, -1) + value
-			)
+			this.#updateDisplay(this.currentValue, this.previousValue.slice(0, -1) + value)
 		} else {
 			this.#updateDisplay("0", (this.currentValue += value))
 		}
@@ -131,6 +120,8 @@ export class Calculator {
 			this.#updateDisplay("Ошибка", "")
 			return
 		}
+
+		this.#formatField()
 
 		const result = new Function(
 			`return ${(this.previousValue + this.currentValue).replace(/--/g, "+")}`

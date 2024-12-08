@@ -3,8 +3,10 @@
   "tabWidth": 2,
   "useTabs": true,
   "semi": false,
-  "arrowParens": "avoid",
+  "arrowParens": "always",
   "singleAttributePerLine": true,
   "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true
+  "importOrderSortSpecifiers": true,
+  "singleQuote": false,
+  "printWidth": 100
 }

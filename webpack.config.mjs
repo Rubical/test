@@ -1,8 +1,14 @@
-const path = require("path")
-const HtmlWebpackPlugin = require("html-webpack-plugin")
-const { CleanWebpackPlugin } = require("clean-webpack-plugin")
+import path from "path";
 
-module.exports = {
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import {CleanWebpackPlugin} from "clean-webpack-plugin";
+
+import {fileURLToPath} from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default {
 	mode: "production",
 	entry: "./src/index.js",
 	output: {
@@ -23,17 +29,18 @@ module.exports = {
 		]
 	},
 	devServer: {
-		static: "./dist",
+		static: {
+			directory: path.resolve(__dirname, "dist"),
+		},
 		port: 3000,
-		hot: true,
 		open: true,
 		compress: true
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: path.resolve(__dirname, "./src/index.html"),
+			template:  path.resolve(__dirname, "./src/index.html"),
 			filename: "index.html"
 		}),
 		new CleanWebpackPlugin()
 	]
-}
+};
